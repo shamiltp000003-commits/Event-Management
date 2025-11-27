@@ -10,22 +10,22 @@ const Sidebar = () => {
             <p className='hidden md:inline-block'>Dashboard</p>
         </NavLink>
 
-        <NavLink  to='/admin/addevent' className={({isActive})=> `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-64 cursor-pointer ${isActive && "bg-cyan-800 border-r-4 border-primary"}`}>
+        <NavLink  to='/admin/add-provider' className={({isActive})=> `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-64 cursor-pointer ${isActive && "bg-cyan-800 border-r-4 border-primary"}`}>
             {/* <img src={assets.add_icon} alt="" className='min-w-4 w-5' /> */}
             <p className='hidden md:inline-block'>View Providers</p>
         </NavLink>
 
-        <NavLink  to='/admin/feedback' className={({isActive})=> `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-64 cursor-pointer ${isActive && "bg-cyan-800 border-r-4 border-primary"}`}>
+        <NavLink  to='/admin/manage-user' className={({isActive})=> `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-64 cursor-pointer ${isActive && "bg-cyan-800 border-r-4 border-primary"}`}>
             {/* <img src={assets.list_icon} alt="" className='min-w-4 w-5' /> */}
             <p className='hidden md:inline-block'>Manage user</p>
         </NavLink>
 
-        <NavLink  to='/admin/attendence' className={({isActive})=> `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-64 cursor-pointer ${isActive && "bg-cyan-800 border-r-4 border-primary"}`}>
+        <NavLink  to='/admin/settlement-history' className={({isActive})=> `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-64 cursor-pointer ${isActive && "bg-cyan-800 border-r-4 border-primary"}`}>
             {/* <img src={assets.comment_icon} alt="" className='min-w-4 w-5' /> */}
             <p className='hidden md:inline-block'>Settlement History</p>
         </NavLink>
 
-        <NavLink  to='/admin/registrations' className={({isActive})=> `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-64 cursor-pointer ${isActive && "bg-cyan-800 border-r-4 border-primary"}`}>
+        <NavLink  to='/admin/security' className={({isActive})=> `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-64 cursor-pointer ${isActive && "bg-cyan-800 border-r-4 border-primary"}`}>
             {/* <img src={assets.comment_icon} alt="" className='min-w-4 w-5' /> */}
             <p className='hidden md:inline-block'>Scecurity</p>
         </NavLink>
