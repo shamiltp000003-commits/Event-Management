@@ -1,62 +1,36 @@
-
- 
-import React, { useState } from "react";
-import { Menu, X, Users, UserCheck, Wallet, Shield } from "lucide-react";
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+// import { assets } from '../../assets/assets'
 
 const Sidebar = () => {
-  const [open, setOpen] = useState(true);
-
   return (
-    <div className="flex">
-      {/* Sidebar */}
-      <div className={`${open ? "w-64" : "w-16"} bg-gray-900 text-white min-h-screen p-4 transition-all duration-300`}>
-        
-        {/* Header */}
-        <div className="flex items-center justify-between">
-          <h1 className={`${open ? "text-xl font-bold" : "hidden"}`}>Admin</h1>
-          <button onClick={() => setOpen(!open)}>
-            {open ? <X /> : <Menu />}
-          </button>
-        </div>
+    <div className='flex flex-col border-r border-gray-200 min-h-full pt-6 text-gray-400'>
+        <NavLink end={true} to='/admin' className={({isActive})=> `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-64 cursor-pointer ${isActive && "bbg-cyan-800 border-r-4 border-primary"}`}>
+            {/* <img src={assets.home_icon} alt="" className='min-w-4 w-5' /> */}
+            <p className='hidden md:inline-block'>Dashboard</p>
+        </NavLink>
 
-        {/* Menu */}
-        <ul className="mt-8 space-y-4">
+        <NavLink  to='/admin/addevent' className={({isActive})=> `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-64 cursor-pointer ${isActive && "bg-cyan-800 border-r-4 border-primary"}`}>
+            {/* <img src={assets.add_icon} alt="" className='min-w-4 w-5' /> */}
+            <p className='hidden md:inline-block'>View Providers</p>
+        </NavLink>
 
-          {/* View Providers */}
-          <li className="flex items-center gap-3 hover:bg-gray-700 cursor-pointer p-2 rounded-md">
-            <Users size={20} />
-            {open && <span>View Providers</span>}
-          </li>
+        <NavLink  to='/admin/feedback' className={({isActive})=> `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-64 cursor-pointer ${isActive && "bg-cyan-800 border-r-4 border-primary"}`}>
+            {/* <img src={assets.list_icon} alt="" className='min-w-4 w-5' /> */}
+            <p className='hidden md:inline-block'>Manage user</p>
+        </NavLink>
 
-          {/* View Users */}
-          <li className="flex items-center gap-3 hover:bg-gray-700 cursor-pointer p-2 rounded-md">
-            <UserCheck size={20} />
-            {open && <span>View Users</span>}
-          </li>
+        <NavLink  to='/admin/attendence' className={({isActive})=> `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-64 cursor-pointer ${isActive && "bg-cyan-800 border-r-4 border-primary"}`}>
+            {/* <img src={assets.comment_icon} alt="" className='min-w-4 w-5' /> */}
+            <p className='hidden md:inline-block'>Settlement History</p>
+        </NavLink>
 
-          {/* Settlement History */}
-          <li className="flex items-center gap-3 hover:bg-gray-700 cursor-pointer p-2 rounded-md">
-            <Wallet size={20} />
-            {open && <span>Settlement History</span>}
-          </li>
-
-          {/* Security */}
-          <li className="flex items-center gap-3 hover:bg-gray-700 cursor-pointer p-2 rounded-md">
-            <Shield size={20} />
-            {open && <span>Security</span>}
-          </li>
-        </ul>
-      </div>
-
-      {/* Main Content */}
-      <div className="flex-1 p-6">
-        <h2 className="text-2xl font-semibold">Main Content</h2>
-        <p>Add your content here...</p>
-      </div>
+        <NavLink  to='/admin/registrations' className={({isActive})=> `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-64 cursor-pointer ${isActive && "bg-cyan-800 border-r-4 border-primary"}`}>
+            {/* <img src={assets.comment_icon} alt="" className='min-w-4 w-5' /> */}
+            <p className='hidden md:inline-block'>Scecurity</p>
+        </NavLink>
     </div>
-  );
-};
+  )
+}
 
-export default Sidebar;
-      
-
+export default Sidebar
