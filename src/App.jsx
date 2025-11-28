@@ -6,6 +6,12 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import { useAppContext } from './context/AppContext'
 import About from './components/About'
 import Contactus from './components/Contactus'
+import AdminDashboard from './pages/admin/AdminDashboard'
+import ViewProviders from './pages/admin/ViewProviders'
+import ManageUser from './pages/admin/ManageUser'
+import SettlementHistory from './pages/admin/SettlementHistory'
+import Security from './pages/admin/Security'
+import AdminLayout from './pages/admin/AdminLayout'
 
 const App = () => {
    const isAdminPath = useLocation().pathname.includes("admin")
@@ -20,6 +26,13 @@ const App = () => {
           <Route path='/' element={<Home/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/contact' element={<Contactus/>}/>
+          <Route path='/admin' element={true ? <AdminLayout/> : <AdminLayout/>}>
+            <Route index element={<AdminDashboard/>}/>
+            <Route path='add-provider' element={<ViewProviders/>}/>
+            <Route path='manage-user' element={<ManageUser/>}/>
+            <Route path='settlement-history' element={<SettlementHistory/>}/>
+            <Route path='security' element={<Security/>}/>
+         </Route>
         </Routes>
       </div>
       
