@@ -6,3 +6,9 @@ export const adminDashboard_data = {
   "registrations": 240,
   "feedbackReceived": 95
 };
+
+export const providerDashboard_data = {
+  "BookingsRecieved": 55,
+     "PaymentHistory": 55,
+     "FeedbackReceived": 15
+};

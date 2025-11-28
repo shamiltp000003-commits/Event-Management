@@ -12,6 +12,12 @@ import ManageUser from './pages/admin/ManageUser'
 import SettlementHistory from './pages/admin/SettlementHistory'
 import Security from './pages/admin/Security'
 import AdminLayout from './pages/admin/AdminLayout'
+import ProviderLayout from './pages/serviceProvider/ProviderLayout'
+import ProviderDashboard from './pages/serviceProvider/ProviderDashboard'
+import Bookingdetails from './pages/serviceProvider/Bookingdetails'
+import AddService from './pages/serviceProvider/addService'
+import Review from './pages/serviceProvider/review'
+import Footer from './components/Footer'
 
 const App = () => {
    const isAdminPath = useLocation().pathname.includes("admin")
@@ -21,7 +27,7 @@ const App = () => {
       {isAdminPath ? null : <Navbar/> }
       {showUserLogin ? <Login/> : null}
       
-       <div className={`${isAdminPath ? "" : "px-6 md:px-16 lg:px-24 xl:px-32"}`}>
+       <div className={`${isAdminPath ? "" : ""}`}>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/about' element={<About/>}/>
@@ -33,7 +39,15 @@ const App = () => {
             <Route path='settlement-history' element={<SettlementHistory/>}/>
             <Route path='security' element={<Security/>}/>
          </Route>
+
+           <Route path='/provider' element={true ? <ProviderLayout/> : <ProviderLayout/>}>
+            <Route index element={<ProviderDashboard/>}/>
+            <Route path='add-service' element={<AddService/>}/>
+            <Route path='booking-details' element={<Bookingdetails/>}/>
+            <Route path='review' element={<Review/>}/>
+         </Route>
         </Routes>
+        <Footer/>
       </div>
       
     </div>
