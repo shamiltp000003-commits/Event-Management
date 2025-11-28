@@ -2,9 +2,7 @@ import React from 'react'
 
 const ViewProviders = () => {
   return (
-    <div>
-      
-    </div>
+    <div>ViewProviders</div>
   )
 }
 
