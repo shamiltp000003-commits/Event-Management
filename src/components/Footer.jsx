@@ -8,7 +8,9 @@ const Footer = () => {
 
         {/* Brand */}
         <div>
-          <h2 className="text-xl font-semibold mb-4">Wedding Bliss</h2>
+         <h2 className="text-2xl mb-4 font-cursive">
+  Wedding Bliss
+</h2>
           <p className="text-sm leading-relaxed">
             Make your weddings memorable with premium event management, 
             professional service providers, and seamless booking experience.
@@ -24,7 +26,7 @@ const Footer = () => {
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+          <h3 className="text-lg font-semibold mb-4 font-cursive">Quick Links</h3>
           <ul className="space-y-2 text-sm">
             <li className="hover:text-gray-300 cursor-pointer">Home</li>
             <li className="hover:text-gray-300 cursor-pointer">About Us</li>

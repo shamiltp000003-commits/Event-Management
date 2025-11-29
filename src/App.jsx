@@ -18,38 +18,58 @@ import Bookingdetails from './pages/serviceProvider/Bookingdetails'
 import AddService from './pages/serviceProvider/addService'
 import Review from './pages/serviceProvider/review'
 import Footer from './components/Footer'
+import AuditoriumCreation from './pages/serviceProvider/AuditoriumCreation'
+import CateringCreation from './pages/serviceProvider/CateringCreation'
+import StageDecorationCreation from './pages/serviceProvider/StageDecorationCreation'
+import PhotographyCreation from './pages/serviceProvider/PhotographyCreation'
 
 const App = () => {
-   const isAdminPath = useLocation().pathname.includes("admin")
+  const { pathname } = useLocation();
+
+  // Hide navbar + footer on admin or provider routes
+  const hideLayout = pathname.includes("admin") || pathname.includes("provider");
+
   const {showUserLogin} = useAppContext()
   return (
-    <div>
-      {isAdminPath ? null : <Navbar/> }
-      {showUserLogin ? <Login/> : null}
-      
-       <div className={`${isAdminPath ? "" : ""}`}>
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/about' element={<About/>}/>
-          <Route path='/contact' element={<Contactus/>}/>
-          <Route path='/admin' element={true ? <AdminLayout/> : <AdminLayout/>}>
-            <Route index element={<AdminDashboard/>}/>
-            <Route path='add-provider' element={<ViewProviders/>}/>
-            <Route path='manage-user' element={<ManageUser/>}/>
-            <Route path='settlement-history' element={<SettlementHistory/>}/>
-            <Route path='security' element={<Security/>}/>
-         </Route>
+   <div>
+      {/* Navbar */}
+      {!hideLayout && <Navbar />}
 
-           <Route path='/provider' element={true ? <ProviderLayout/> : <ProviderLayout/>}>
-            <Route index element={<ProviderDashboard/>}/>
-            <Route path='add-service' element={<AddService/>}/>
-            <Route path='booking-details' element={<Bookingdetails/>}/>
-            <Route path='review' element={<Review/>}/>
-         </Route>
+      {/* Login Popup */}
+      {showUserLogin && <Login />}
+
+      <div>
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contactus />} />
+
+          {/* Admin Routes */}
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="add-provider" element={<ViewProviders />} />
+            <Route path="manage-user" element={<ManageUser />} />
+            <Route path="settlement-history" element={<SettlementHistory />} />
+            <Route path="security" element={<Security />} />
+          </Route>
+
+          {/* Provider Routes */}
+          <Route path="/provider" element={<ProviderLayout />}>
+            <Route index element={<ProviderDashboard />} />
+            <Route path="add-service" element={<AddService />} />
+            <Route path="add-service/auditorium" element={<AuditoriumCreation />} />
+            <Route path="add-service/catering" element={<CateringCreation/>} />
+            <Route path="add-service/stage-decoration" element={<StageDecorationCreation/>} />
+            <Route path="add-service/photography" element={<PhotographyCreation/>} />
+            <Route path="booking-details" element={<Bookingdetails />} />
+            <Route path="review" element={<Review />} />
+          </Route>
         </Routes>
-        <Footer/>
+
+        {/* Footer only on non-admin & non-provider pages */}
+        {!hideLayout && <Footer />}
       </div>
-      
     </div>
   )
 }

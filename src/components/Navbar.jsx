@@ -67,16 +67,29 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div
   className={`
-    fixed top-[60px] left-0 h-screen w-[300px] bg-white shadow-md py-4 px-5 
-    flex-col items-start gap-[40px] text-sm md:hidden
-    transform transition-all duration-300 ease-in-out
-    ${open ? "translate-x-0 opacity-100 flex" : "-translate-x-full opacity-0 hidden"}
+    fixed top-0 left-0 h-screen w-[260px] z-50 bg-white shadow-xl
+    flex flex-col items-start gap-6 p-6
+    md:hidden
+    transition-transform duration-300 ease-in-out
+    transform
+    ${open ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"}
   `}
 >
-  <NavLink onClick={() => setOpen(false)} to="/">Home</NavLink>
-  <NavLink onClick={() => setOpen(false)} to="/about">About</NavLink>
-  <NavLink onClick={() => setOpen(false)} to="/contact">Contact</NavLink>
-  <NavLink onClick={() => setOpen(false)} to="/allevents">All events</NavLink>
+  <NavLink onClick={() => setOpen(false)} to="/" className="text-gray-800 hover:text-indigo-600">
+    Home
+  </NavLink>
+
+  <NavLink onClick={() => setOpen(false)} to="/about" className="text-gray-800 hover:text-indigo-600">
+    About
+  </NavLink>
+
+  <NavLink onClick={() => setOpen(false)} to="/contact" className="text-gray-800 hover:text-indigo-600">
+    Contact
+  </NavLink>
+
+  <NavLink onClick={() => setOpen(false)} to="/allevents" className="text-gray-800 hover:text-indigo-600">
+    All Events
+  </NavLink>
 
   {!user ? (
     <button
@@ -84,19 +97,20 @@ const Navbar = () => {
         setOpen(false);
         setShowUserLogin(true);
       }}
-      className="cursor-pointer px-6 py-2 mt-2 bg-indigo-500 hover:bg-indigo-600 transition text-white rounded-full text-sm"
+      className="cursor-pointer px-6 py-2 bg-indigo-500 hover:bg-indigo-600 transition text-white rounded-full text-sm"
     >
       Login
     </button>
   ) : (
     <button
       onClick={logout}
-      className="cursor-pointer px-6 py-2 mt-2 bg-indigo-500 hover:bg-indigo-600 transition text-white rounded-full text-sm"
+      className="cursor-pointer px-6 py-2 bg-indigo-500 hover:bg-indigo-600 transition text-white rounded-full text-sm"
     >
       Logout
     </button>
   )}
 </div>
+
 
     </nav>
   );

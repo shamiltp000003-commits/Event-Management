@@ -3,7 +3,7 @@ import Aboutimg from "../assets/abutimg1.jpg"
 
 const About = () => {
   return (
-    <div>
+    <div className='max-w-7xl flex flex-col w-full mx-auto'>
       <div className='text-center text-2xl pt-10 text-gray-500'>
         <p>ABOUT <span className='text-blue-700 font-medium'>US</span></p>
       </div>
