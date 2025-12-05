@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { BsDot } from "react-icons/bs";
 import { PiDotDuotone } from "react-icons/pi";
 import { Search } from 'lucide-react';
 

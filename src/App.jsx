@@ -23,6 +23,7 @@ import CateringCreation from './pages/serviceProvider/CateringCreation'
 import StageDecorationCreation from './pages/serviceProvider/StageDecorationCreation'
 import PhotographyCreation from './pages/serviceProvider/PhotographyCreation'
 import CategorySection from './components/CategorySection'
+import Faq from './pages/serviceProvider/Faq'
 
 const App = () => {
   const { pathname } = useLocation();
@@ -65,6 +66,7 @@ const App = () => {
             <Route path="add-service/photography" element={<PhotographyCreation/>} />
             <Route path="booking-details" element={<Bookingdetails />} />
             <Route path="review" element={<Review />} />
+             <Route path="faq" element={<Faq />} />
           </Route>
         </Routes>
 

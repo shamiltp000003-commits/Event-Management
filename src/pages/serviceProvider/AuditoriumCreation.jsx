@@ -137,7 +137,7 @@ const AuditoriumCreation = () => {
 
         {/* Price */}
         <div className="flex flex-col">
-          <label className="font-semibold mb-1 text-gray-500">Price per Day (₹)</label>
+          <label className="font-semibold mb-1 text-gray-500">Price per hour (₹)</label>
           <input
             type="number"
             value={price}
