@@ -22,6 +22,7 @@ import AuditoriumCreation from './pages/serviceProvider/AuditoriumCreation'
 import CateringCreation from './pages/serviceProvider/CateringCreation'
 import StageDecorationCreation from './pages/serviceProvider/StageDecorationCreation'
 import PhotographyCreation from './pages/serviceProvider/PhotographyCreation'
+import CategorySection from './components/CategorySection'
 
 const App = () => {
   const { pathname } = useLocation();
@@ -29,7 +30,7 @@ const App = () => {
   // Hide navbar + footer on admin or provider routes
   const hideLayout = pathname.includes("admin") || pathname.includes("provider");
 
-  const {showUserLogin} = useAppContext()
+  const {showUserLogin, user} = useAppContext()
   return (
    <div>
       {/* Navbar */}
@@ -68,6 +69,7 @@ const App = () => {
         </Routes>
 
         {/* Footer only on non-admin & non-provider pages */}
+        {user && <CategorySection />}
         {!hideLayout && <Footer />}
       </div>
     </div>

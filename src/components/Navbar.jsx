@@ -3,8 +3,10 @@ import { NavLink } from "react-router-dom";
 import { useAppContext } from "../context/AppContext";
 import searchicon from "../assets/search.svg"
 import menuicon from "../assets/menuicon.svg"
+import { BsPerson } from "react-icons/bs";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const {user, setUser, setShowUserLogin, navigate} = useAppContext();
 
    const logout = async () => {
@@ -38,21 +40,48 @@ const Navbar = () => {
           <img src={searchicon} alt="" />
         </div>
 
-        {!user ? (
-                    <button onClick={()=> 
-                        setShowUserLogin(true)
-                    } className="cursor-pointer px-8 py-2 bg-indigo-400 hover:bg-indigo-600 transition text-white rounded-full">
-                    Login
-                </button>
-                ) : (
-                    <div className='relative group'>
-                        <img src={assets.profile_icon} alt="" className='w-10' />
-                        <ul className='hidden group-hover:block absolute top-10 right-0 bg-white shadow border border-gray-400 py-2.5 w-30 rounded-md text-sm'>
-                            <li onClick={()=> navigate("")} className='p-1.5 pl-3 hover:bg-blue-400 cursor-pointer'>My profile</li>
-                            <li onClick={logout} className='p-1.5 pl-3 hover:bg-blue-400 cursor-pointer'>Logout</li>
-                        </ul>
-                    </div>
-                )}
+         {!user ? (
+      <button
+        onClick={() => setShowUserLogin(true)}
+        className="cursor-pointer px-8 py-2 bg-indigo-400 hover:bg-indigo-600 transition text-white rounded-full"
+      >
+        Login
+      </button>
+    ) : (
+      <div className="relative">
+        {/* Avatar */}
+        <div
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="border-2 border-blue-900 rounded-full p-1 bg-blue-900 cursor-pointer"
+        >
+          <BsPerson className="text-white text-xl" />
+        </div>
+
+        {/* Dropdown */}
+        {menuOpen && (
+          <ul className="absolute top-10 right-0 bg-white shadow border border-gray-400 py-2.5 w-32 rounded-md text-sm z-50">
+            <li
+              onClick={() => {
+                navigate("");
+                setMenuOpen(false);
+              }}
+              className="p-1.5 pl-3 hover:bg-blue-400 cursor-pointer"
+            >
+              My profile
+            </li>
+            <li
+              onClick={() => {
+                logout();
+                setMenuOpen(false);
+              }}
+              className="p-1.5 pl-3 hover:bg-blue-400 cursor-pointer"
+            >
+              Logout
+            </li>
+          </ul>
+        )}
+      </div>
+    )}
       </div>
 
       <button
