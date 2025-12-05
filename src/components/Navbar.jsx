@@ -3,8 +3,10 @@ import { NavLink } from "react-router-dom";
 import { useAppContext } from "../context/AppContext";
 import searchicon from "../assets/search.svg"
 import menuicon from "../assets/menuicon.svg"
+import { BsPerson } from "react-icons/bs";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const {user, setUser, setShowUserLogin, navigate} = useAppContext();
 
    const logout = async () => {
@@ -38,21 +40,48 @@ const Navbar = () => {
           <img src={searchicon} alt="" />
         </div>
 
-        {!user ? (
-                    <button onClick={()=> 
-                        setShowUserLogin(true)
-                    } className="cursor-pointer px-8 py-2 bg-indigo-400 hover:bg-indigo-600 transition text-white rounded-full">
-                    Login
-                </button>
-                ) : (
-                    <div className='relative group'>
-                        <img src={assets.profile_icon} alt="" className='w-10' />
-                        <ul className='hidden group-hover:block absolute top-10 right-0 bg-white shadow border border-gray-400 py-2.5 w-30 rounded-md text-sm'>
-                            <li onClick={()=> navigate("")} className='p-1.5 pl-3 hover:bg-blue-400 cursor-pointer'>My profile</li>
-                            <li onClick={logout} className='p-1.5 pl-3 hover:bg-blue-400 cursor-pointer'>Logout</li>
-                        </ul>
-                    </div>
-                )}
+         {!user ? (
+      <button
+        onClick={() => setShowUserLogin(true)}
+        className="cursor-pointer px-8 py-2 bg-indigo-400 hover:bg-indigo-600 transition text-white rounded-full"
+      >
+        Login
+      </button>
+    ) : (
+      <div className="relative">
+        {/* Avatar */}
+        <div
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="border-2 border-blue-900 rounded-full p-1 bg-blue-900 cursor-pointer"
+        >
+          <BsPerson className="text-white text-xl" />
+        </div>
+
+        {/* Dropdown */}
+        {menuOpen && (
+          <ul className="absolute top-10 right-0 bg-white shadow border border-gray-400 py-2.5 w-32 rounded-md text-sm z-50">
+            <li
+              onClick={() => {
+                navigate("");
+                setMenuOpen(false);
+              }}
+              className="p-1.5 pl-3 hover:bg-blue-400 cursor-pointer"
+            >
+              My profile
+            </li>
+            <li
+              onClick={() => {
+                logout();
+                setMenuOpen(false);
+              }}
+              className="p-1.5 pl-3 hover:bg-blue-400 cursor-pointer"
+            >
+              Logout
+            </li>
+          </ul>
+        )}
+      </div>
+    )}
       </div>
 
       <button
@@ -67,16 +96,29 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div
   className={`
-    fixed top-[60px] left-0 h-screen w-[300px] bg-white shadow-md py-4 px-5 
-    flex-col items-start gap-[40px] text-sm md:hidden
-    transform transition-all duration-300 ease-in-out
-    ${open ? "translate-x-0 opacity-100 flex" : "-translate-x-full opacity-0 hidden"}
+    fixed top-0 left-0 h-screen w-[260px] z-50 bg-white shadow-xl
+    flex flex-col items-start gap-6 p-6
+    md:hidden
+    transition-transform duration-300 ease-in-out
+    transform
+    ${open ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"}
   `}
 >
-  <NavLink onClick={() => setOpen(false)} to="/">Home</NavLink>
-  <NavLink onClick={() => setOpen(false)} to="/about">About</NavLink>
-  <NavLink onClick={() => setOpen(false)} to="/contact">Contact</NavLink>
-  <NavLink onClick={() => setOpen(false)} to="/allevents">All events</NavLink>
+  <NavLink onClick={() => setOpen(false)} to="/" className="text-gray-800 hover:text-indigo-600">
+    Home
+  </NavLink>
+
+  <NavLink onClick={() => setOpen(false)} to="/about" className="text-gray-800 hover:text-indigo-600">
+    About
+  </NavLink>
+
+  <NavLink onClick={() => setOpen(false)} to="/contact" className="text-gray-800 hover:text-indigo-600">
+    Contact
+  </NavLink>
+
+  <NavLink onClick={() => setOpen(false)} to="/allevents" className="text-gray-800 hover:text-indigo-600">
+    All Events
+  </NavLink>
 
   {!user ? (
     <button
@@ -84,19 +126,20 @@ const Navbar = () => {
         setOpen(false);
         setShowUserLogin(true);
       }}
-      className="cursor-pointer px-6 py-2 mt-2 bg-indigo-500 hover:bg-indigo-600 transition text-white rounded-full text-sm"
+      className="cursor-pointer px-6 py-2 bg-indigo-500 hover:bg-indigo-600 transition text-white rounded-full text-sm"
     >
       Login
     </button>
   ) : (
     <button
       onClick={logout}
-      className="cursor-pointer px-6 py-2 mt-2 bg-indigo-500 hover:bg-indigo-600 transition text-white rounded-full text-sm"
+      className="cursor-pointer px-6 py-2 bg-indigo-500 hover:bg-indigo-600 transition text-white rounded-full text-sm"
     >
       Logout
     </button>
   )}
 </div>
+
 
     </nav>
   );
