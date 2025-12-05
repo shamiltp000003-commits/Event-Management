@@ -45,9 +45,9 @@ const AuditoriumCreation = () => {
     formData.append("ownerContact", ownerContact);
     formData.append("capacity", capacity);
     formData.append("price", price);
-    formData.append("description", description);          // NEW
-    formData.append("openingTime", openingTime);          // NEW
-    formData.append("closingTime", closingTime);          // NEW
+    formData.append("description", description);
+    formData.append("openingTime", openingTime);    
+    formData.append("closingTime", closingTime);
 
     images.forEach((img) => formData.append("images", img.file));
 
