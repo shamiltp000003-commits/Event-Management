@@ -27,11 +27,16 @@
   font-family: "Dancing Script", cursive !important;
   font-weight: 400 !important;
 } */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap'); */
 @import "tailwindcss";
 *{
   font-family: "Outfit", sans-serif;
+}
+
+.font-playfair{
+  font-family: Playfair !important;
 }
 
 body, html {

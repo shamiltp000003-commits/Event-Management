@@ -23,12 +23,17 @@ import CateringCreation from './pages/serviceProvider/CateringCreation'
 import StageDecorationCreation from './pages/serviceProvider/StageDecorationCreation'
 import PhotographyCreation from './pages/serviceProvider/PhotographyCreation'
 import CategorySection from './components/CategorySection'
+import UserLayout from './pages/user/UserLayout'
+import ServicesCategory from './pages/user/ServicesCategory'
+import UserBookings from './pages/user/UserBookings'
+import Testimonials from './components/Testimonials'
+import NewsLetter from './components/NewsLetter'
 
 const App = () => {
   const { pathname } = useLocation();
 
   // Hide navbar + footer on admin or provider routes
-  const hideLayout = pathname.includes("admin") || pathname.includes("provider");
+  const hideLayout = pathname.includes("admin") || pathname.includes("provider") || pathname.includes("user");
 
   const {showUserLogin, user} = useAppContext()
   return (
@@ -45,6 +50,16 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contactus />} />
+        
+          {/* user Route */}
+
+          <Route path="/user" element={<UserLayout/>}>
+            <Route index element={<ServicesCategory/>} />
+            <Route path="userbookings" element={<UserBookings/>} />
+            {/* <Route path="manage-user" element={<ManageUser />} />
+            <Route path="settlement-history" element={<SettlementHistory />} />
+            <Route path="security" element={<Security />} /> */}
+          </Route>
 
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLayout />}>
@@ -69,7 +84,13 @@ const App = () => {
         </Routes>
 
         {/* Footer only on non-admin & non-provider pages */}
-        {user && <CategorySection />}
+        {user && (
+  <>
+    <CategorySection />
+    <Testimonials />
+    <NewsLetter/>
+  </>
+)}
         {!hideLayout && <Footer />}
       </div>
     </div>

@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram, FaTwitter, FaPhone, FaEnvelope, FaMapMarkerAlt
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-gradient-to-b from-[#1B004D] to-[#2E0A6F] text-white mt-10">
+<footer className="w-full bg-gradient-to-b from-[#0C0321] to-black text-white mt-10">
       <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-10">
 
         {/* Brand */}
