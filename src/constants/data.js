@@ -86,12 +86,12 @@ export const auditoriumServices = [
     category: "auditorium",
     providerId: "p101",
 
-    images: [
-      "/auditoriums/aud1_1.jpg",
-      "/auditoriums/aud1_2.jpg",
-      "/auditoriums/aud1_3.jpg",
-      "/auditoriums/aud1_4.jpg"
-    ]
+   images: [
+  "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+  "https://images.unsplash.com/photo-1590073242678-70ee3fc28f8e",
+  "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea"
+]
   },
 
   {
@@ -119,10 +119,10 @@ export const auditoriumServices = [
     providerId: "p102",
 
     images: [
-      "/auditoriums/aud2_1.jpg",
-      "/auditoriums/aud2_2.jpg",
-      "/auditoriums/aud2_3.jpg"
-    ]
+    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&auto=format",
+    "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900&auto=format",
+    "https://images.unsplash.com/photo-1590073242678-70ee3fc28f8e?w=900&auto=format"
+  ]
   },
 
   {
@@ -150,8 +150,8 @@ export const auditoriumServices = [
     providerId: "p103",
 
     images: [
-      "/auditoriums/aud3_1.jpg",
-      "/auditoriums/aud3_2.jpg"
+  "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=900&auto=format",
+  "https://images.unsplash.com/photo-1503428593586-e225b39bddfe?w=900&auto=format"
     ]
   },
 
@@ -180,10 +180,10 @@ export const auditoriumServices = [
     providerId: "p104",
 
     images: [
-      "/auditoriums/aud4_1.jpg",
-      "/auditoriums/aud4_2.jpg",
-      "/auditoriums/aud4_3.jpg",
-      "/auditoriums/aud4_4.jpg"
+  "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=900&auto=format",
+  "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=900&auto=format",
+  "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=900&auto=format",
+  "https://images.unsplash.com/photo-1597047084897-51e81819a499?w=900&auto=format"
     ]
   },
 
@@ -212,9 +212,9 @@ export const auditoriumServices = [
     providerId: "p105",
 
     images: [
-      "/auditoriums/aud5_1.jpg",
-      "/auditoriums/aud5_2.jpg"
-    ]
+  "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=900&auto=format",
+  "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=900&auto=format"
+  ]
   }
 ];
 
@@ -249,10 +249,10 @@ export const cateringServices = [
     providerId: "p201",
 
     images: [
-      "/catering/cat1_1.jpg",
-      "/catering/cat1_2.jpg",
-      "/catering/cat1_3.jpg"
-    ]
+  "https://images.unsplash.com/photo-1555243896-c709bfa0b564?w=900&auto=format",
+  "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=900&auto=format",
+  "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=900&auto=format"
+  ]
   },
 
   {
@@ -283,9 +283,9 @@ export const cateringServices = [
     providerId: "p202",
 
     images: [
-      "/catering/cat2_1.jpg",
-      "/catering/cat2_2.jpg"
-    ]
+  "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&auto=format",
+  "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=900&auto=format"
+  ]
   },
 
   {
@@ -309,9 +309,9 @@ export const cateringServices = [
     providerId: "p203",
 
     images: [
-      "/catering/cat3_1.jpg",
-      "/catering/cat3_2.jpg"
-    ]
+    "https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?w=900&auto=format",
+    "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=900&auto=format"
+  ]
   },
 
   {
@@ -342,10 +342,10 @@ export const cateringServices = [
     providerId: "p204",
 
     images: [
-      "/catering/cat4_1.jpg",
-      "/catering/cat4_2.jpg",
-      "/catering/cat4_3.jpg"
-    ]
+  "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=900&auto=format",
+  "https://images.unsplash.com/photo-1473093226795-af9932fe5856?w=900&auto=format",
+  "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=900&auto=format"
+  ]
   },
 
   {
@@ -369,9 +369,9 @@ export const cateringServices = [
     providerId: "p205",
 
     images: [
-      "/catering/cat5_1.jpg",
-      "/catering/cat5_2.jpg"
-    ]
+  "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=900&auto=format",
+  "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=900&auto=format"
+]
   }
 ];
 
@@ -415,10 +415,10 @@ export const photographyServices = [
     providerId: "p401",
 
     images: [
-      "/photography/photo1_1.jpg",
-      "/photography/photo1_2.jpg",
-      "/photography/photo1_3.jpg"
-    ]
+  "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=900&auto=format",
+  "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900&auto=format",
+  "https://images.unsplash.com/photo-1519741497674-611481863552?w=900&auto=format"
+]
   },
 
   {
@@ -452,9 +452,9 @@ export const photographyServices = [
     providerId: "p402",
 
     images: [
-      "/photography/photo2_1.jpg",
-      "/photography/photo2_2.jpg"
-    ]
+  "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=900&auto=format",
+  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=900&auto=format"
+]
   },
 
   {
@@ -488,9 +488,10 @@ export const photographyServices = [
     providerId: "p403",
 
     images: [
-      "/photography/photo3_1.jpg",
-      "/photography/photo3_2.jpg"
-    ]
+  "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=900&auto=format",
+  "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=900&auto=format"
+]
+
   },
 
   {
@@ -523,8 +524,9 @@ export const photographyServices = [
     providerId: "p404",
 
     images: [
-      "/photography/photo4_1.jpg"
-    ]
+  "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=900&auto=format"
+]
+
   },
 
   {
@@ -559,10 +561,11 @@ export const photographyServices = [
     providerId: "p405",
 
     images: [
-      "/photography/photo5_1.jpg",
-      "/photography/photo5_2.jpg",
-      "/photography/photo5_3.jpg"
-    ]
+  "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=900&auto=format",
+  "https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?w=900&auto=format",
+  "https://images.unsplash.com/photo-1520857014576-2c4f4c972b57?w=900&auto=format"
+]
+
   }
 ];
 
@@ -597,9 +600,10 @@ export const decorationServices = [
     ],
 
     images: [
-      "/decorations/dec1_1.jpg",
-      "/decorations/dec1_2.jpg"
-    ]
+  "https://images.unsplash.com/photo-1526045478516-99145907023c?w=900&auto=format",
+  "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=900&auto=format"
+  ]
+
   },
 
   {
@@ -630,10 +634,10 @@ export const decorationServices = [
     ],
 
     images: [
-      "/decorations/dec2_1.jpg",
-      "/decorations/dec2_2.jpg",
-      "/decorations/dec2_3.jpg"
-    ]
+  "https://images.unsplash.com/photo-1507504031003-b417219a0fde?w=900&auto=format",
+  "https://images.unsplash.com/photo-1521334884684-d80222895322?w=900&auto=format"
+]
+
   },
 
   {
@@ -658,8 +662,9 @@ export const decorationServices = [
     ],
 
     images: [
-      "/decorations/dec3_1.jpg"
-    ]
+  "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=900&auto=format"
+]
+
   },
 
   {
@@ -690,9 +695,11 @@ export const decorationServices = [
     ],
 
     images: [
-      "/decorations/dec4_1.jpg",
-      "/decorations/dec4_2.jpg"
-    ]
+  "https://images.unsplash.com/photo-1503424886307-b090341d25d1?w=900&auto=format",
+  "https://images.unsplash.com/photo-1525268323446-0505b6fe7778?w=900&auto=format",
+  "https://images.unsplash.com/photo-1519160558534-579f51052e1a?w=900&auto=format"
+]
+
   },
 
   {
@@ -723,9 +730,10 @@ export const decorationServices = [
     ],
 
     images: [
-      "/decorations/dec5_1.jpg",
-      "/decorations/dec5_2.jpg"
-    ]
+  "https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?w=900&auto=format",
+  "https://images.unsplash.com/photo-1522156373667-4c7234bbd804?w=900&auto=format"
+]
+
   }
 ];
 
