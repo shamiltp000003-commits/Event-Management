@@ -29,9 +29,18 @@ export const auditoriumServices = [
     location: "Kochi",
     ownerContact: "9876543210",
     capacity: 600,
-    price: 55000,
+
+    price: 55000,                 // per day
+    pricePerHour: 7000,           // NEW
+    overtimePrice: 9000,          // NEW
+    acType: "AC",                 // NEW
+
     openingTime: "08:00",
     closingTime: "23:00",
+
+    cancellationPolicy:           // NEW
+      "Free cancellation up to 7 days before the event. 50% refund if cancelled within 3–6 days. No refund within 48 hours.",
+
     providerId: "p101",
     images: [
       "/auditoriums/aud1_1.jpg",
@@ -41,6 +50,7 @@ export const auditoriumServices = [
     ],
     category: "auditorium"
   },
+
   {
     id: "aud2",
     auditoriumName: "Royal Heritage Hall",
@@ -48,9 +58,18 @@ export const auditoriumServices = [
     location: "Thrissur",
     ownerContact: "9543217890",
     capacity: 450,
+
     price: 42000,
+    pricePerHour: 5500,
+    overtimePrice: 7500,
+    acType: "AC",
+
     openingTime: "09:00",
     closingTime: "22:00",
+
+    cancellationPolicy:
+      "Full refund if cancelled 5 days prior to booking date. No refund within 48 hours.",
+
     providerId: "p102",
     images: [
       "/auditoriums/aud2_1.jpg",
@@ -60,6 +79,7 @@ export const auditoriumServices = [
     ],
     category: "auditorium"
   },
+
   {
     id: "aud3",
     auditoriumName: "Green Valley Convention Center",
@@ -67,9 +87,18 @@ export const auditoriumServices = [
     location: "Calicut",
     ownerContact: "9998887776",
     capacity: 700,
+
     price: 60000,
+    pricePerHour: 8000,
+    overtimePrice: 10000,
+    acType: "AC",
+
     openingTime: "07:00",
     closingTime: "23:30",
+
+    cancellationPolicy:
+      "Cancellation allowed up to 10 days before the event with 70% refund. No refund within 72 hours.",
+
     providerId: "p103",
     images: [
       "/auditoriums/aud3_1.jpg",
@@ -79,6 +108,7 @@ export const auditoriumServices = [
     ],
     category: "auditorium"
   },
+
   {
     id: "aud4",
     auditoriumName: "Blue Lotus Hall",
@@ -86,9 +116,18 @@ export const auditoriumServices = [
     location: "Ernakulam",
     ownerContact: "9871236540",
     capacity: 300,
+
     price: 28000,
+    pricePerHour: 3500,
+    overtimePrice: 5000,
+    acType: "Non-AC",
+
     openingTime: "09:00",
     closingTime: "21:00",
+
+    cancellationPolicy:
+      "Free cancellation up to 3 days before event. 50% refund if cancelled within 48 hours.",
+
     providerId: "p104",
     images: [
       "/auditoriums/aud4_1.jpg",
@@ -98,6 +137,7 @@ export const auditoriumServices = [
     ],
     category: "auditorium"
   },
+
   {
     id: "aud5",
     auditoriumName: "Diamond Crown Convention Hall",
@@ -105,9 +145,18 @@ export const auditoriumServices = [
     location: "Trivandrum",
     ownerContact: "9080706050",
     capacity: 800,
+
     price: 75000,
+    pricePerHour: 10000,
+    overtimePrice: 12000,
+    acType: "AC",
+
     openingTime: "06:00",
     closingTime: "23:59",
+
+    cancellationPolicy:
+      "Cancellation before 7 days: 80% refund. Cancellation within 3 days: No refund.",
+
     providerId: "p105",
     images: [
       "/auditoriums/aud5_1.jpg",
@@ -118,6 +167,7 @@ export const auditoriumServices = [
     category: "auditorium"
   }
 ];
+
 //////////////////////////////////////////////////////////////////////////
 
 export const cateringServices = [

@@ -28,6 +28,8 @@ import ServicesCategory from './pages/user/ServicesCategory'
 import UserBookings from './pages/user/UserBookings'
 import Testimonials from './components/Testimonials'
 import NewsLetter from './components/NewsLetter'
+import MyServices from './pages/serviceProvider/MyServices'
+import EditPhotography from './pages/serviceProvider/EditPhotography'
 
 const App = () => {
   const { pathname } = useLocation();
@@ -80,6 +82,8 @@ const App = () => {
             <Route path="add-service/photography" element={<PhotographyCreation/>} />
             <Route path="booking-details" element={<Bookingdetails />} />
             <Route path="review" element={<Review />} />
+            <Route path="/provider/my-services" element={<MyServices />} />
+            <Route path="/provider/edit/photography/:serviceId" element={<EditPhotography />} />
           </Route>
         </Routes>
 
