@@ -30,6 +30,7 @@ import Testimonials from './components/Testimonials'
 import NewsLetter from './components/NewsLetter'
 import MyServices from './pages/serviceProvider/MyServices'
 import EditPhotography from './pages/serviceProvider/EditPhotography'
+import EventShowcasebyCategory from './components/EventShowcasebyCategory'
 
 const App = () => {
   const { pathname } = useLocation();
@@ -52,6 +53,11 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contactus />} />
+          {/* <Route path="/services/:category" element={<ServicesCategory />} /> */}
+          <Route
+    path="/services/:category"
+    element={<EventShowcasebyCategory />}
+  />
         
           {/* user Route */}
 

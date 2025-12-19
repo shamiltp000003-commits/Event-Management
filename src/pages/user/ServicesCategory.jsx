@@ -1,8 +1,11 @@
 import React from 'react'
+import CategorySection from '../../components/CategorySection'
 
 const ServicesCategory = () => {
   return (
-    <div>ServicesCategory</div>
+    <div className='max-w-5xl w-full mx-auto'>
+      <CategorySection/>
+    </div>
   )
 }
 

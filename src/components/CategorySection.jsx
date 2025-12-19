@@ -1,43 +1,14 @@
 import { NavLink } from "react-router-dom";
-import { TbBuildingBank } from "react-icons/tb";
-import { GiKnifeFork } from "react-icons/gi";
-import { BiSolidMagicWand } from "react-icons/bi";
-import { IoCameraOutline } from "react-icons/io5";
+
 
 import Bannerimg from "../assets/bannerimg2.jpg";
-import Mainbg from "../assets/mainbg2.jpg";
-import Mainbg2 from "../assets/mainbg3.jpg";
-import decor from "../assets/decoration1.jpg";
-import photogrpher from "../assets/photogrpher.jpg";
+
 import Title from "./Title";
+import { categories } from "../constants/data";
 
 const CategorySection = () => {
-  const categories = [
-    {
-      name: "Auditorium",
-      icon: <TbBuildingBank size={22} />,
-      slug: "auditorium",
-      image: Mainbg,
-    },
-    {
-      name: "Catering",
-      icon: <GiKnifeFork size={22} />,
-      slug: "catering",
-      image: Mainbg2,
-    },
-    {
-      name: "Decoration",
-      icon: <BiSolidMagicWand size={22} />,
-      slug: "decoration",
-      image: decor,
-    },
-    {
-      name: "Photography",
-      icon: <IoCameraOutline size={22} />,
-      slug: "photography",
-      image: photogrpher,
-    },
-  ];
+
+
 
   return (
     <div className="py-10 px-4 max-w-[1440px] mx-auto">
@@ -71,8 +42,8 @@ const CategorySection = () => {
             <div className="p-4 flex items-center justify-between">
               <p className="text-lg font-semibold text-gray-900">{cat.name}</p>
               <div className="p-2 bg-gray-200 rounded-full text-gray-600">
-                {cat.icon}
-              </div>
+  <cat.icon size={22} />
+</div>
             </div>
           </NavLink>
         ))}

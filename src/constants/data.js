@@ -1,4 +1,14 @@
 //data.js
+
+import { TbBuildingBank } from "react-icons/tb";
+import { GiKnifeFork } from "react-icons/gi";
+import { BiSolidMagicWand } from "react-icons/bi";
+import { IoCameraOutline } from "react-icons/io5";
+import Mainbg from "../assets/mainbg2.jpg";
+import Mainbg2 from "../assets/mainbg3.jpg";
+import decor from "../assets/decoration1.jpg";
+import photogrpher from "../assets/photogrpher.jpg";
+
 export const adminDashboard_data = {
   "Totalusers": 12,
   "Totalproviders": 3,
@@ -19,79 +29,53 @@ export const testimonials = [
     { id: 3, name: "Sophia Lee", address: "Seoul, South Korea", image: "https://images.unsplash.com/photo-1701615004837-40d8573b6652?q=80&w=200", rating: 5, review: "Amazing service! I always find the best luxury accommodations through QuickStay. Their recommendations never disappoint!" }
 ];
 
+//////////////////////////////////////
+
+
+export const categories = [
+  {
+    name: "Auditorium",
+    icon: TbBuildingBank,
+    slug: "auditorium",
+    image: Mainbg,
+  },
+  {
+    name: "Catering",
+    icon: GiKnifeFork,
+    slug: "catering",
+    image: Mainbg2,
+  },
+  {
+    name: "Decoration",
+    icon: BiSolidMagicWand,
+    slug: "stage-decoration",
+    image: decor,
+  },
+  {
+    name: "Photography",
+    icon: IoCameraOutline,
+    slug: "photography",
+    image: photogrpher,
+  },
+];
+
 
 ///////////////////////////////////////////////////////////
 export const auditoriumServices = [
   {
     id: "aud1",
-    auditoriumName: "Grand Palace Auditorium",
-    description: "A premium auditorium perfect for weddings and corporate events.",
-    location: "Kochi",
-    ownerContact: "9876543210",
-    capacity: 600,
-
-    price: 55000,                 // per day
-    pricePerHour: 7000,           // NEW
-    overtimePrice: 9000,          // NEW
-    acType: "AC",                 // NEW
-
-    openingTime: "08:00",
-    closingTime: "23:00",
-
-    cancellationPolicy:           // NEW
-      "Free cancellation up to 7 days before the event. 50% refund if cancelled within 3–6 days. No refund within 48 hours.",
-
-    providerId: "p101",
-    images: [
-      "/auditoriums/aud1_1.jpg",
-      "/auditoriums/aud1_2.jpg",
-      "/auditoriums/aud1_3.jpg",
-      "/auditoriums/aud1_4.jpg"
-    ],
-    category: "auditorium"
-  },
-
-  {
-    id: "aud2",
-    auditoriumName: "Royal Heritage Hall",
-    description: "Luxury hall with modern lighting and premium seating arrangement.",
-    location: "Thrissur",
-    ownerContact: "9543217890",
-    capacity: 450,
-
-    price: 42000,
-    pricePerHour: 5500,
-    overtimePrice: 7500,
-    acType: "AC",
-
-    openingTime: "09:00",
-    closingTime: "22:00",
-
-    cancellationPolicy:
-      "Full refund if cancelled 5 days prior to booking date. No refund within 48 hours.",
-
-    providerId: "p102",
-    images: [
-      "/auditoriums/aud2_1.jpg",
-      "/auditoriums/aud2_2.jpg",
-      "/auditoriums/aud2_3.jpg",
-      "/auditoriums/aud2_4.jpg"
-    ],
-    category: "auditorium"
-  },
-
-  {
-    id: "aud3",
     auditoriumName: "Green Valley Convention Center",
-    description: "Spacious hall ideal for receptions, engagements and exhibitions.",
     location: "Calicut",
     ownerContact: "9998887776",
     capacity: 700,
 
-    price: 60000,
+    pricePerDay: 60000,
     pricePerHour: 8000,
     overtimePrice: 10000,
     acType: "AC",
+
+    description:
+      "Spacious hall ideal for receptions, engagements and exhibitions.",
 
     openingTime: "07:00",
     closingTime: "23:30",
@@ -99,72 +83,138 @@ export const auditoriumServices = [
     cancellationPolicy:
       "Cancellation allowed up to 10 days before the event with 70% refund. No refund within 72 hours.",
 
+    category: "auditorium",
+    providerId: "p101",
+
+    images: [
+      "/auditoriums/aud1_1.jpg",
+      "/auditoriums/aud1_2.jpg",
+      "/auditoriums/aud1_3.jpg",
+      "/auditoriums/aud1_4.jpg"
+    ]
+  },
+
+  {
+    id: "aud2",
+    auditoriumName: "Royal Pearl Auditorium",
+    location: "Kochi",
+    ownerContact: "9876543210",
+    capacity: 500,
+
+    pricePerDay: 45000,
+    pricePerHour: 6500,
+    overtimePrice: 9000,
+    acType: "AC",
+
+    description:
+      "Premium AC auditorium suitable for weddings and corporate events.",
+
+    openingTime: "08:00",
+    closingTime: "22:00",
+
+    cancellationPolicy:
+      "Free cancellation up to 7 days before event. 50% refund within 3 days.",
+
+    category: "auditorium",
+    providerId: "p102",
+
+    images: [
+      "/auditoriums/aud2_1.jpg",
+      "/auditoriums/aud2_2.jpg",
+      "/auditoriums/aud2_3.jpg"
+    ]
+  },
+
+  {
+    id: "aud3",
+    auditoriumName: "Silver Oak Community Hall",
+    location: "Trivandrum",
+    ownerContact: "9123456780",
+    capacity: 350,
+
+    pricePerDay: 30000,
+    pricePerHour: 4500,
+    overtimePrice: 6000,
+    acType: "Non-AC",
+
+    description:
+      "Affordable community hall ideal for birthday parties and engagements.",
+
+    openingTime: "06:00",
+    closingTime: "23:00",
+
+    cancellationPolicy:
+      "Cancellation allowed up to 5 days before event with 50% refund.",
+
+    category: "auditorium",
     providerId: "p103",
+
     images: [
       "/auditoriums/aud3_1.jpg",
-      "/auditoriums/aud3_2.jpg",
-      "/auditoriums/aud3_3.jpg",
-      "/auditoriums/aud3_4.jpg"
-    ],
-    category: "auditorium"
+      "/auditoriums/aud3_2.jpg"
+    ]
   },
 
   {
     id: "aud4",
-    auditoriumName: "Blue Lotus Hall",
-    description: "Affordable auditorium suited for small to mid-sized events.",
-    location: "Ernakulam",
-    ownerContact: "9871236540",
-    capacity: 300,
+    auditoriumName: "Emerald Grand Hall",
+    location: "Thrissur",
+    ownerContact: "9988776655",
+    capacity: 900,
 
-    price: 28000,
-    pricePerHour: 3500,
-    overtimePrice: 5000,
-    acType: "Non-AC",
+    pricePerDay: 85000,
+    pricePerHour: 11000,
+    overtimePrice: 14000,
+    acType: "AC",
 
-    openingTime: "09:00",
-    closingTime: "21:00",
+    description:
+      "Luxury grand hall with modern interiors and large parking space.",
+
+    openingTime: "07:00",
+    closingTime: "23:59",
 
     cancellationPolicy:
-      "Free cancellation up to 3 days before event. 50% refund if cancelled within 48 hours.",
+      "Cancellation allowed up to 14 days before event with 80% refund.",
 
+    category: "auditorium",
     providerId: "p104",
+
     images: [
       "/auditoriums/aud4_1.jpg",
       "/auditoriums/aud4_2.jpg",
       "/auditoriums/aud4_3.jpg",
       "/auditoriums/aud4_4.jpg"
-    ],
-    category: "auditorium"
+    ]
   },
 
   {
     id: "aud5",
-    auditoriumName: "Diamond Crown Convention Hall",
-    description: "High-class auditorium with premium décor, sound system and parking.",
-    location: "Trivandrum",
-    ownerContact: "9080706050",
-    capacity: 800,
+    auditoriumName: "Lotus Mini Convention Hall",
+    location: "Kannur",
+    ownerContact: "9012345678",
+    capacity: 200,
 
-    price: 75000,
-    pricePerHour: 10000,
-    overtimePrice: 12000,
-    acType: "AC",
+    pricePerDay: 18000,
+    pricePerHour: 3000,
+    overtimePrice: 4000,
+    acType: "Non-AC",
 
-    openingTime: "06:00",
-    closingTime: "23:59",
+    description:
+      "Compact hall suitable for meetings, small functions and workshops.",
+
+    openingTime: "08:00",
+    closingTime: "21:00",
 
     cancellationPolicy:
-      "Cancellation before 7 days: 80% refund. Cancellation within 3 days: No refund.",
+      "No refund within 48 hours of the event.",
 
+    category: "auditorium",
     providerId: "p105",
+
     images: [
       "/auditoriums/aud5_1.jpg",
-      "/auditoriums/aud5_2.jpg",
-      "/auditoriums/aud5_3.jpg",
-      "/auditoriums/aud5_4.jpg"
-    ],
-    category: "auditorium"
+      "/auditoriums/aud5_2.jpg"
+    ]
   }
 ];
 
@@ -174,434 +224,509 @@ export const cateringServices = [
   {
     id: "cat1",
     companyName: "Royal Feast Caterers",
-    ownerName: "Arun Kumar",
+    ownerName: "Suresh Kumar",
     contactNumber: "9876543210",
-    description: "Premium catering service offering veg & non-veg menu options.",
-    cateringType: "both",
-    openingTime: "08:00",
-    closingTime: "22:00",
+    location: "Kochi",
+
+    packages: [
+      {
+        id: "pkg1",
+        packageName: "Wedding Veg Package",
+        foodType: "veg",
+        pricePerPerson: 450,
+        description: "Traditional Kerala sadya with desserts"
+      },
+      {
+        id: "pkg2",
+        packageName: "Wedding Non-Veg Package",
+        foodType: "non-veg",
+        pricePerPerson: 750,
+        description: "Chicken, mutton, fish, starters & desserts"
+      }
+    ],
+
+    category: "catering",
+    providerId: "p201",
+
     images: [
       "/catering/cat1_1.jpg",
       "/catering/cat1_2.jpg",
-      "/catering/cat1_3.jpg",
-      "/catering/cat1_4.jpg"
-    ],
-    menu: [
-      { name: "Chicken Biriyani", category: "Main Course", type: "non-veg", price: 180 },
-      { name: "Paneer Tikka", category: "Starter", type: "veg", price: 120 },
-      { name: "Gulab Jamun", category: "Dessert", type: "veg", price: 60 }
-    ],
-    providerId: "p201",
-    category: "catering"
+      "/catering/cat1_3.jpg"
+    ]
   },
 
   {
     id: "cat2",
-    companyName: "Taste of Kerala Catering",
-    ownerName: "Manoj Varma",
-    contactNumber: "9445566778",
-    description: "Traditional Kerala meals with authentic flavors.",
-    cateringType: "veg",
-    openingTime: "09:00",
-    closingTime: "21:00",
+    companyName: "Spice Route Caterers",
+    ownerName: "Anil Varma",
+    contactNumber: "9123456789",
+    location: "Calicut",
+
+    packages: [
+      {
+        id: "pkg3",
+        packageName: "Engagement Veg Package",
+        foodType: "veg",
+        pricePerPerson: 350,
+        description: "Light meals with sweets and snacks"
+      },
+      {
+        id: "pkg4",
+        packageName: "Engagement Combo Package",
+        foodType: "both",
+        pricePerPerson: 550,
+        description: "Veg & non-veg combo with live counters"
+      }
+    ],
+
+    category: "catering",
+    providerId: "p202",
+
     images: [
       "/catering/cat2_1.jpg",
-      "/catering/cat2_2.jpg",
-      "/catering/cat2_3.jpg",
-      "/catering/cat2_4.jpg"
-    ],
-    menu: [
-      { name: "Sadhya", category: "Main Course", type: "veg", price: 200 },
-      { name: "Pachadi", category: "Side Dish", type: "veg", price: 40 },
-      { name: "Payasam", category: "Dessert", type: "veg", price: 70 }
-    ],
-    providerId: "p202",
-    category: "catering"
+      "/catering/cat2_2.jpg"
+    ]
   },
 
   {
     id: "cat3",
-    companyName: "Supreme Caterers",
-    ownerName: "Rohit Menon",
-    contactNumber: "9977886655",
-    description: "Perfect choice for weddings & corporate functions.",
-    cateringType: "non-veg",
-    openingTime: "07:00",
-    closingTime: "23:00",
+    companyName: "Golden Spoon Catering",
+    ownerName: "Rahul Menon",
+    contactNumber: "9988776655",
+    location: "Trivandrum",
+
+    packages: [
+      {
+        id: "pkg5",
+        packageName: "Birthday Party Package",
+        foodType: "both",
+        pricePerPerson: 400,
+        description: "Kids & adult menu with cakes and snacks"
+      }
+    ],
+
+    category: "catering",
+    providerId: "p203",
+
     images: [
       "/catering/cat3_1.jpg",
-      "/catering/cat3_2.jpg",
-      "/catering/cat3_3.jpg",
-      "/catering/cat3_4.jpg"
-    ],
-    menu: [
-      { name: "Grilled Chicken", category: "Starter", type: "non-veg", price: 150 },
-      { name: "Fish Curry", category: "Main Course", type: "non-veg", price: 170 },
-      { name: "Ice Cream", category: "Dessert", type: "veg", price: 50 }
-    ],
-    providerId: "p203",
-    category: "catering"
+      "/catering/cat3_2.jpg"
+    ]
   },
 
   {
     id: "cat4",
-    companyName: "Delight Caterers",
-    ownerName: "Radhika Nair",
-    contactNumber: "9090909090",
-    description: "Affordable catering suitable for birthday parties & local events.",
-    cateringType: "veg",
-    openingTime: "10:00",
-    closingTime: "20:00",
+    companyName: "Elite Banquet Caterers",
+    ownerName: "Mohammed Shafi",
+    contactNumber: "9012345678",
+    location: "Thrissur",
+
+    packages: [
+      {
+        id: "pkg6",
+        packageName: "Corporate Lunch Package",
+        foodType: "veg",
+        pricePerPerson: 300,
+        description: "Healthy corporate meals with beverages"
+      },
+      {
+        id: "pkg7",
+        packageName: "Corporate Premium Package",
+        foodType: "both",
+        pricePerPerson: 650,
+        description: "Multi-cuisine menu with desserts"
+      }
+    ],
+
+    category: "catering",
+    providerId: "p204",
+
     images: [
       "/catering/cat4_1.jpg",
       "/catering/cat4_2.jpg",
-      "/catering/cat4_3.jpg",
-      "/catering/cat4_4.jpg"
-    ],
-    menu: [
-      { name: "Vegetable Pulao", category: "Main Course", type: "veg", price: 120 },
-      { name: "Samosa", category: "Starter", type: "veg", price: 20 },
-      { name: "Jalebi", category: "Dessert", type: "veg", price: 40 }
-    ],
-    providerId: "p204",
-    category: "catering"
+      "/catering/cat4_3.jpg"
+    ]
   },
 
   {
     id: "cat5",
-    companyName: "Five Star Banquets",
-    ownerName: "Kiran Joseph",
-    contactNumber: "9812345678",
-    description: "Luxury buffet catering with premium international dishes.",
-    cateringType: "both",
-    openingTime: "06:00",
-    closingTime: "23:59",
+    companyName: "HomeStyle Caterers",
+    ownerName: "Lakshmi Nair",
+    contactNumber: "8899776655",
+    location: "Kannur",
+
+    packages: [
+      {
+        id: "pkg8",
+        packageName: "Home Event Veg Package",
+        foodType: "veg",
+        pricePerPerson: 250,
+        description: "Simple home-style veg meals"
+      }
+    ],
+
+    category: "catering",
+    providerId: "p205",
+
     images: [
       "/catering/cat5_1.jpg",
-      "/catering/cat5_2.jpg",
-      "/catering/cat5_3.jpg",
-      "/catering/cat5_4.jpg"
-    ],
-    menu: [
-      { name: "BBQ Chicken", category: "Starter", type: "non-veg", price: 250 },
-      { name: "Pasta Alfredo", category: "Main Course", type: "veg", price: 180 },
-      { name: "Brownie", category: "Dessert", type: "veg", price: 90 }
-    ],
-    providerId: "p205",
-    category: "catering"
+      "/catering/cat5_2.jpg"
+    ]
   }
 ];
+
 /////////////////////////////////////////////////////////////////////////////////////
 
 export const photographyServices = [
   {
     id: "photo1",
-    studioName: "Skyline Photography",
-    photographerName: "Arjun Nair",
+    studioName: "LensCraft Studio",
+    photographerName: "Arjun Menon",
     phone: "9876543210",
-    email: "skyline@gmail.com",
+    email: "lenscraft@gmail.com",
     location: "Kochi",
-    description: "Expert wedding and candid photography with 10+ years of experience.",
-    openingTime: "08:00",
-    closingTime: "22:00",
-    pricePerDay: 15000,
-    pricePerHour: 2000,
+
+    description:
+      "Professional wedding and candid photography with cinematic storytelling.",
 
     serviceTypes: [
       "Wedding",
       "Candid",
-      "Drone",
-      "Video Coverage",
-      "Engagement"
+      "Pre-Wedding",
+      "Video Coverage"
     ],
 
     packages: [
-      { name: "Wedding Premium", description: "Full day coverage + album", price: 25000 },
-      { name: "Candid Exclusive", description: "Creative candid photoshoot", price: 12000 }
+      {
+        id: "pkg1",
+        name: "Wedding Basic",
+        description: "Full day wedding coverage with 1 photographer",
+        pricePerHour: 2500
+      },
+      {
+        id: "pkg2",
+        name: "Wedding Premium",
+        description: "2 photographers + candid + highlights video",
+        pricePerHour: 4500
+      }
     ],
 
-    portfolioImages: [
+    category: "photography",
+    providerId: "p401",
+
+    images: [
       "/photography/photo1_1.jpg",
       "/photography/photo1_2.jpg",
-      "/photography/photo1_3.jpg",
-      "/photography/photo1_4.jpg"
-    ],
-
-    providerId: "p301",
-    category: "photography"
+      "/photography/photo1_3.jpg"
+    ]
   },
 
   {
     id: "photo2",
-    studioName: "Golden Moments Studio",
-    photographerName: "Meera Soman",
-    phone: "9900776655",
-    email: "goldenmoments@gmail.com",
-    location: "Calicut",
-    description: "Specialized in maternity, baby shoots and birthday photography.",
-    openingTime: "09:00",
-    closingTime: "20:00",
-    pricePerDay: 12000,
-    pricePerHour: 1800,
+    studioName: "Moments Capture",
+    photographerName: "Rahul Krishnan",
+    phone: "9123456789",
+    email: "momentscapture@gmail.com",
+    location: "Trivandrum",
+
+    description:
+      "Creative photography for weddings, engagements and baby shoots.",
 
     serviceTypes: [
+      "Wedding",
+      "Engagement",
       "Baby Shoot",
-      "Maternity",
-      "Birthday",
-      "Traditional"
+      "Maternity"
     ],
 
     packages: [
-      { name: "Baby Shoot Mini", description: "2 hours studio shoot", price: 6000 },
-      { name: "Maternity Deluxe", description: "Outdoor + studio package", price: 14000 }
+      {
+        id: "pkg3",
+        name: "Engagement Package",
+        description: "4-hour engagement coverage",
+        pricePerHour: 2000
+      }
     ],
 
-    portfolioImages: [
+    category: "photography",
+    providerId: "p402",
+
+    images: [
       "/photography/photo2_1.jpg",
-      "/photography/photo2_2.jpg",
-      "/photography/photo2_3.jpg"
-    ],
-
-    providerId: "p302",
-    category: "photography"
+      "/photography/photo2_2.jpg"
+    ]
   },
 
   {
     id: "photo3",
-    studioName: "Royal Frame Productions",
-    photographerName: "Sidharth Varma",
-    phone: "9123456789",
-    email: "royalframe@gmail.com",
-    location: "Trivandrum",
-    description: "High-end cinematic wedding films and drone videography.",
-    openingTime: "07:00",
-    closingTime: "23:59",
-    pricePerDay: 28000,
-    pricePerHour: 3500,
+    studioName: "FrameStory Photography",
+    photographerName: "Nikhil Das",
+    phone: "9988776655",
+    email: "framestory@gmail.com",
+    location: "Calicut",
+
+    description:
+      "Modern candid photography with drone and cinematic video coverage.",
 
     serviceTypes: [
-      "Wedding",
+      "Candid",
       "Drone",
       "Video Coverage",
-      "Pre-Wedding",
-      "Candid"
+      "Corporate"
     ],
 
     packages: [
-      { name: "Cinematic Wedding", description: "Drone + full day filming", price: 45000 },
-      { name: "Pre-Wedding Shoot", description: "Outdoor cinematic shoot", price: 18000 }
+      {
+        id: "pkg4",
+        name: "Corporate Event Package",
+        description: "Photography + short promotional video",
+        pricePerHour: 3000
+      }
     ],
 
-    portfolioImages: [
+    category: "photography",
+    providerId: "p403",
+
+    images: [
       "/photography/photo3_1.jpg",
-      "/photography/photo3_2.jpg",
-      "/photography/photo3_3.jpg",
-      "/photography/photo3_4.jpg"
-    ],
-
-    providerId: "p303",
-    category: "photography"
+      "/photography/photo3_2.jpg"
+    ]
   },
 
   {
     id: "photo4",
-    studioName: "LensCraft Studio",
-    photographerName: "Neha Krishnan",
-    phone: "9988776655",
-    email: "lenscraft@gmail.com",
-    location: "Ernakulam",
-    description: "Affordable photography packages for small events and parties.",
-    openingTime: "10:00",
-    closingTime: "21:00",
-    pricePerDay: 9000,
-    pricePerHour: 1200,
+    studioName: "DreamShot Studio",
+    photographerName: "Sanjay Pillai",
+    phone: "9012345678",
+    email: "dreamshot@gmail.com",
+    location: "Thrissur",
+
+    description:
+      "Affordable photography services for birthdays and family events.",
 
     serviceTypes: [
       "Birthday",
-      "Engagement",
-      "Traditional"
+      "Traditional",
+      "Family"
     ],
 
     packages: [
-      { name: "Birthday Basic", description: "3 hours coverage", price: 5000 },
-      { name: "Engagement Classic", description: "Event coverage + portraits", price: 9000 }
+      {
+        id: "pkg5",
+        name: "Birthday Party Package",
+        description: "3-hour event coverage with edited photos",
+        pricePerHour: 1800
+      }
     ],
 
-    portfolioImages: [
-      "/photography/photo4_1.jpg",
-      "/photography/photo4_2.jpg"
-    ],
+    category: "photography",
+    providerId: "p404",
 
-    providerId: "p304",
-    category: "photography"
+    images: [
+      "/photography/photo4_1.jpg"
+    ]
   },
 
   {
     id: "photo5",
-    studioName: "DreamShots Media",
-    photographerName: "Rahul Ramesh",
-    phone: "9871122334",
-    email: "dreamshots@gmail.com",
+    studioName: "Elite Wedding Stories",
+    photographerName: "Faizal Ahmed",
+    phone: "8899776655",
+    email: "elitewedding@gmail.com",
     location: "Kannur",
-    description: "Professional cinematic videography and pre-wedding concepts.",
-    openingTime: "06:00",
-    closingTime: "23:00",
-    pricePerDay: 20000,
-    pricePerHour: 2500,
+
+    description:
+      "Luxury wedding photography with international quality standards.",
 
     serviceTypes: [
+      "Wedding",
+      "Candid",
       "Pre-Wedding",
       "Drone",
-      "Wedding",
-      "Candid"
+      "Video Coverage"
     ],
 
     packages: [
-      { name: "Drone Package", description: "Drone photos + video", price: 15000 },
-      { name: "Pre-Wedding Cinematic", description: "Concept shoot & film", price: 30000 }
+      {
+        id: "pkg6",
+        name: "Luxury Wedding Package",
+        description: "Full team, drone shots & cinematic wedding film",
+        pricePerHour: 6000
+      }
     ],
 
-    portfolioImages: [
+    category: "photography",
+    providerId: "p405",
+
+    images: [
       "/photography/photo5_1.jpg",
       "/photography/photo5_2.jpg",
       "/photography/photo5_3.jpg"
-    ],
-
-    providerId: "p305",
-    category: "photography"
+    ]
   }
 ];
+
 //////////////////////////////////////////////////////////////////////////
 
 export const decorationServices = [
   {
     id: "dec1",
-    companyName: "Dream Decor Events",
-    address: "Kochi, Kerala",
+    companyName: "Royal Stage Decorators",
+    address: "MG Road, Kochi",
+    location: "Kochi",
     phone: "9876543210",
-    description: "Premium stage decorations for weddings, receptions and engagements.",
+    description:
+      "Professional stage decoration services for weddings, receptions and events.",
 
-    decorations: [
+    category: "stage-decoration",
+    providerId: "p301",
+
+    packages: [
       {
-        title: "Royal Wedding Stage",
-        description: "Golden theme with floral arch and LED backdrop.",
-        price: 25000,
-        image: "/decorations/dec1_1.jpg"
+        title: "Classic Wedding Stage",
+        description: "Floral backdrop with traditional lighting",
+        category: "Affordable",
+        pricePerDay: 25000
       },
       {
-        title: "Elegant Flower Stage",
-        description: "White floral stage setup with spotlighting.",
-        price: 18000,
-        image: "/decorations/dec1_2.jpg"
+        title: "Premium Floral Stage",
+        description: "Fresh flowers, premium drapes and LED lighting",
+        category: "Premium",
+        pricePerDay: 45000
       }
     ],
 
-    providerId: "p401",
-    category: "decoration"
+    images: [
+      "/decorations/dec1_1.jpg",
+      "/decorations/dec1_2.jpg"
+    ]
   },
 
   {
     id: "dec2",
-    companyName: "Bloom & Glow Decorators",
-    address: "Calicut, Kerala",
-    phone: "9445566778",
-    description: "Affordable decoration services for birthdays, weddings and corporate events.",
+    companyName: "Elegant Moments Decor",
+    address: "Vyttila",
+    location: "Kochi",
+    phone: "9988776655",
+    description:
+      "Luxury and premium stage decorations with customized themes.",
 
-    decorations: [
+    category: "stage-decoration",
+    providerId: "p302",
+
+    packages: [
       {
-        title: "Birthday Balloon Theme",
-        description: "Colorful balloons with LED name board.",
-        price: 9000,
-        image: "/decorations/dec2_1.jpg"
+        title: "Engagement Elegant Stage",
+        description: "Soft pastel theme with floral arches",
+        category: "Premium",
+        pricePerDay: 35000
       },
       {
-        title: "Corporate Blue Theme",
-        description: "Elegant blue backdrop for events and seminars.",
-        price: 15000,
-        image: "/decorations/dec2_2.jpg"
+        title: "Luxury Crystal Stage",
+        description: "Crystal props, imported flowers and premium lighting",
+        category: "Luxury",
+        pricePerDay: 70000
       }
     ],
 
-    providerId: "p402",
-    category: "decoration"
+    images: [
+      "/decorations/dec2_1.jpg",
+      "/decorations/dec2_2.jpg",
+      "/decorations/dec2_3.jpg"
+    ]
   },
 
   {
     id: "dec3",
-    companyName: "Royal Stage Makers",
-    address: "Trivandrum, Kerala",
-    phone: "9977886655",
-    description: "High-end wedding and engagement stage setups designed by professionals.",
+    companyName: "Dream Day Stage Designers",
+    address: "Palayam",
+    location: "Trivandrum",
+    phone: "9123456789",
+    description:
+      "Affordable yet elegant stage decorations for small and medium events.",
 
-    decorations: [
+    category: "stage-decoration",
+    providerId: "p303",
+
+    packages: [
       {
-        title: "Crystal Stage Setup",
-        description: "Glass floral walls with chandelier center stage.",
-        price: 35000,
-        image: "/decorations/dec3_1.jpg"
-      },
-      {
-        title: "Traditional Kerala Stage",
-        description: "Temple-style stage with flowers, lamps and wooden backdrop.",
-        price: 22000,
-        image: "/decorations/dec3_2.jpg"
+        title: "Birthday Party Stage",
+        description: "Balloon decor with cartoon themes",
+        category: "Affordable",
+        pricePerDay: 12000
       }
     ],
 
-    providerId: "p403",
-    category: "decoration"
+    images: [
+      "/decorations/dec3_1.jpg"
+    ]
   },
 
   {
     id: "dec4",
-    companyName: "Happy Moments Decor",
-    address: "Ernakulam, Kerala",
-    phone: "9988776655",
-    description: "Specialists in thematic decorations for parties and family events.",
+    companyName: "Golden Petals Decoration",
+    address: "Round North",
+    location: "Thrissur",
+    phone: "9012345678",
+    description:
+      "Specialized in traditional and modern wedding stage decorations.",
 
-    decorations: [
+    category: "stage-decoration",
+    providerId: "p304",
+
+    packages: [
       {
-        title: "Kids Cartoon Theme",
-        description: "Mickey Mouse theme with props and balloon art.",
-        price: 12000,
-        image: "/decorations/dec4_1.jpg"
+        title: "Traditional Kerala Stage",
+        description: "Banana stem, lamps and marigold flowers",
+        category: "Affordable",
+        pricePerDay: 18000
       },
       {
-        title: "Garden Floral Stage",
-        description: "Outdoor-themed floral backdrop with natural look.",
-        price: 20000,
-        image: "/decorations/dec4_2.jpg"
+        title: "Royal Wedding Stage",
+        description: "Grand royal setup with premium props and lighting",
+        category: "Luxury",
+        pricePerDay: 65000
       }
     ],
 
-    providerId: "p404",
-    category: "decoration"
+    images: [
+      "/decorations/dec4_1.jpg",
+      "/decorations/dec4_2.jpg"
+    ]
   },
 
   {
     id: "dec5",
-    companyName: "Elite Décor Studio",
-    address: "Kannur, Kerala",
-    phone: "9812345678",
-    description: "Luxury decor packages designed for premium weddings.",
+    companyName: "Blossom Event Decorators",
+    address: "Civil Station Road",
+    location: "Calicut",
+    phone: "8899776655",
+    description:
+      "Creative and modern stage decorations for all types of events.",
 
-    decorations: [
+    category: "stage-decoration",
+    providerId: "p305",
+
+    packages: [
       {
-        title: "Luxury White Stage",
-        description: "White & gold theme with roses and pillar stands.",
-        price: 40000,
-        image: "/decorations/dec5_1.jpg"
+        title: "Minimal Theme Stage",
+        description: "Simple backdrop with elegant lighting",
+        category: "Affordable",
+        pricePerDay: 15000
       },
       {
-        title: "Diamond Sheer Stage",
-        description: "Sheer drapery design with LED shimmering lights.",
-        price: 38000,
-        image: "/decorations/dec5_2.jpg"
+        title: "Premium Reception Stage",
+        description: "Designer backdrop with LED panels and florals",
+        category: "Premium",
+        pricePerDay: 40000
       }
     ],
 
-    providerId: "p405",
-    category: "decoration"
+    images: [
+      "/decorations/dec5_1.jpg",
+      "/decorations/dec5_2.jpg"
+    ]
   }
 ];
+
 //////////////////////////////////////////////

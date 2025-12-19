@@ -4,44 +4,52 @@ const StageDecorationCreation = () => {
   // Main details
   const [companyName, setCompanyName] = useState("");
   const [address, setAddress] = useState("");
-  const [location, setLocation] = useState(""); // NEW
+  const [location, setLocation] = useState("");
   const [phone, setPhone] = useState("");
   const [description, setDescription] = useState("");
 
   // Packages
   const [decorations, setDecorations] = useState([]);
 
-  // Package fields
+  // Package builder fields
   const [decTitle, setDecTitle] = useState("");
   const [decDescription, setDecDescription] = useState("");
-  const [decCategory, setDecCategory] = useState("Affordable"); // NEW
-  const [decPricePerDay, setDecPricePerDay] = useState(""); // NEW
+  const [decCategory, setDecCategory] = useState("Affordable");
+  const [decPricePerDay, setDecPricePerDay] = useState("");
   const [decImage, setDecImage] = useState(null);
   const [decImagePreview, setDecImagePreview] = useState(null);
 
   const [loading, setLoading] = useState(false);
 
-  // Handle decoration image
+  // ---------- HANDLE IMAGE ----------
   const handleDecorationImage = (e) => {
     const file = e.target.files[0];
+    if (!file) return;
+
     setDecImage(file);
     setDecImagePreview(URL.createObjectURL(file));
   };
 
-  // Add package
+  const removeBuilderImage = () => {
+    setDecImage(null);
+    setDecImagePreview(null);
+  };
+
+  // ---------- ADD PACKAGE ----------
   const addDecoration = () => {
     if (!decTitle || !decDescription || !decPricePerDay || !decImage) {
       alert("Fill all package fields before adding!");
       return;
     }
 
-    setDecorations([
-      ...decorations,
+    setDecorations((prev) => [
+      ...prev,
       {
+        id: Date.now(),
         title: decTitle,
         description: decDescription,
         category: decCategory,
-        pricePerDay: decPricePerDay,
+        pricePerDay: Number(decPricePerDay),
         image: decImage,
         preview: decImagePreview,
       },
@@ -60,7 +68,7 @@ const StageDecorationCreation = () => {
     setDecorations(decorations.filter((_, i) => i !== index));
   };
 
-  // Submit
+  // ---------- SUBMIT ----------
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -72,7 +80,10 @@ const StageDecorationCreation = () => {
     formData.append("phone", phone);
     formData.append("description", description);
 
-    const decData = decorations.map((item) => {
+    // category auto-injected
+    formData.append("category", "stage-decoration");
+
+    const packagesData = decorations.map((item) => {
       formData.append("decorationImages", item.image);
       return {
         title: item.title,
@@ -82,7 +93,7 @@ const StageDecorationCreation = () => {
       };
     });
 
-    formData.append("packages", JSON.stringify(decData));
+    formData.append("packages", JSON.stringify(packagesData));
 
     try {
       const res = await fetch("http://localhost:5000/api/stage-decoration", {
@@ -100,7 +111,6 @@ const StageDecorationCreation = () => {
       setPhone("");
       setDescription("");
       setDecorations([]);
-
     } catch {
       alert("Something went wrong");
     }
@@ -119,10 +129,34 @@ const StageDecorationCreation = () => {
         className="bg-white p-8 rounded-2xl grid md:grid-cols-2 gap-6"
       >
         {/* BASIC INFO */}
-        <input placeholder="Company Name" value={companyName} onChange={(e) => setCompanyName(e.target.value)} className="border p-3 rounded-xl" required />
-        <input placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)} className="border p-3 rounded-xl" required />
-        <input placeholder="Location (City / Area)" value={location} onChange={(e) => setLocation(e.target.value)} className="border p-3 rounded-xl" required />
-        <input placeholder="Phone Number" value={phone} onChange={(e) => setPhone(e.target.value)} className="border p-3 rounded-xl" required />
+        <input
+          placeholder="Company Name"
+          value={companyName}
+          onChange={(e) => setCompanyName(e.target.value)}
+          className="border p-3 rounded-xl"
+          required
+        />
+        <input
+          placeholder="Address"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+          className="border p-3 rounded-xl"
+          required
+        />
+        <input
+          placeholder="Location (City / Area)"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+          className="border p-3 rounded-xl"
+          required
+        />
+        <input
+          placeholder="Phone Number"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          className="border p-3 rounded-xl"
+          required
+        />
 
         <textarea
           rows={4}
@@ -140,10 +174,24 @@ const StageDecorationCreation = () => {
           </h3>
 
           <div className="grid md:grid-cols-5 gap-4">
-            <input placeholder="Package Title" value={decTitle} onChange={(e) => setDecTitle(e.target.value)} className="border p-3 rounded-xl" />
-            <input placeholder="Description" value={decDescription} onChange={(e) => setDecDescription(e.target.value)} className="border p-3 rounded-xl" />
+            <input
+              placeholder="Package Title"
+              value={decTitle}
+              onChange={(e) => setDecTitle(e.target.value)}
+              className="border p-3 rounded-xl"
+            />
+            <input
+              placeholder="Description"
+              value={decDescription}
+              onChange={(e) => setDecDescription(e.target.value)}
+              className="border p-3 rounded-xl"
+            />
 
-            <select value={decCategory} onChange={(e) => setDecCategory(e.target.value)} className="border p-3 rounded-xl">
+            <select
+              value={decCategory}
+              onChange={(e) => setDecCategory(e.target.value)}
+              className="border p-3 rounded-xl"
+            >
               <option>Affordable</option>
               <option>Premium</option>
               <option>Luxury</option>
@@ -157,11 +205,30 @@ const StageDecorationCreation = () => {
               className="border p-3 rounded-xl"
             />
 
-            <input type="file" accept="image/*" onChange={handleDecorationImage} className="border p-3 rounded-xl bg-gray-50" />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleDecorationImage}
+              className="border p-3 rounded-xl bg-gray-50"
+            />
           </div>
 
+          {/* BUILDER IMAGE PREVIEW */}
           {decImagePreview && (
-            <img src={decImagePreview} className="h-32 mt-3 rounded-xl object-cover" />
+            <div className="relative w-fit mt-3">
+              <img
+                src={decImagePreview}
+                alt="preview"
+                className="h-20 w-20 object-cover rounded-lg border"
+              />
+              <button
+                type="button"
+                onClick={removeBuilderImage}
+                className="absolute -top-2 -right-2 bg-red-600 text-white text-xs px-2 py-1 rounded-full"
+              >
+                ✕
+              </button>
+            </div>
           )}
 
           <button
@@ -176,11 +243,25 @@ const StageDecorationCreation = () => {
         {/* PACKAGE LIST */}
         <div className="md:col-span-2">
           {decorations.map((item, index) => (
-            <div key={index} className="flex justify-between items-center bg-gray-100 p-3 rounded-xl mb-2">
-              <span>
-                {item.title} | {item.category} | ₹{item.pricePerDay}/day
-              </span>
-              <button onClick={() => removeDecoration(index)} className="text-red-600">
+            <div
+              key={item.id}
+              className="flex justify-between items-center bg-gray-100 p-3 rounded-xl mb-2"
+            >
+              <div className="flex items-center gap-3">
+                <img
+                  src={item.preview}
+                  alt="preview"
+                  className="h-12 w-12 object-cover rounded-lg border"
+                />
+                <span>
+                  {item.title} | {item.category} | ₹{item.pricePerDay}/day
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={() => removeDecoration(index)}
+                className="text-red-600"
+              >
                 Remove
               </button>
             </div>

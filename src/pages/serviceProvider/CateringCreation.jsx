@@ -18,15 +18,15 @@ const CateringCreation = () => {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // Add package
+  // ---------- ADD PACKAGE ----------
   const addPackage = () => {
     if (!packageName || !pricePerPerson) {
       alert("Fill package name and price");
       return;
     }
 
-    setPackages([
-      ...packages,
+    setPackages((prev) => [
+      ...prev,
       {
         id: Date.now(),
         packageName,
@@ -46,18 +46,28 @@ const CateringCreation = () => {
     setPackages(packages.filter((p) => p.id !== id));
   };
 
-  // Images
+  // ---------- IMAGE UPLOAD ----------
   const handleImageUpload = (e) => {
     const files = Array.from(e.target.files);
-    if (files.length + images.length > 4) return alert("Max 4 images");
+    if (files.length + images.length > 4) {
+      alert("Max 4 images");
+      return;
+    }
 
     setImages((prev) => [
       ...prev,
-      ...files.map((f) => ({ file: f, preview: URL.createObjectURL(f) })),
+      ...files.map((file) => ({
+        file,
+        preview: URL.createObjectURL(file),
+      })),
     ]);
   };
 
-  // Submit
+  const removeImage = (index) => {
+    setImages((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  // ---------- SUBMIT ----------
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -68,10 +78,10 @@ const CateringCreation = () => {
     formData.append("contactNumber", contactNumber);
     formData.append("location", location);
     formData.append("packages", JSON.stringify(packages));
+    formData.append("category", "catering");
 
     images.forEach((img) => formData.append("images", img.file));
 
-    // API call later
     setTimeout(() => {
       alert("Catering Service Created");
       setLoading(false);
@@ -84,14 +94,36 @@ const CateringCreation = () => {
         Create Catering Service
       </h2>
 
-      <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-2xl">
-
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-6 bg-white p-8 rounded-2xl"
+      >
         {/* Provider Details */}
         <div className="grid md:grid-cols-2 gap-4">
-          <input placeholder="Company Name" value={companyName} onChange={(e) => setCompanyName(e.target.value)} className="border p-3 rounded-xl" />
-          <input placeholder="Owner Name" value={ownerName} onChange={(e) => setOwnerName(e.target.value)} className="border p-3 rounded-xl" />
-          <input placeholder="Contact Number" value={contactNumber} onChange={(e) => setContactNumber(e.target.value)} className="border p-3 rounded-xl" />
-          <input placeholder="Location" value={location} onChange={(e) => setLocation(e.target.value)} className="border p-3 rounded-xl" />
+          <input
+            placeholder="Company Name"
+            value={companyName}
+            onChange={(e) => setCompanyName(e.target.value)}
+            className="border p-3 rounded-xl"
+          />
+          <input
+            placeholder="Owner Name"
+            value={ownerName}
+            onChange={(e) => setOwnerName(e.target.value)}
+            className="border p-3 rounded-xl"
+          />
+          <input
+            placeholder="Contact Number"
+            value={contactNumber}
+            onChange={(e) => setContactNumber(e.target.value)}
+            className="border p-3 rounded-xl"
+          />
+          <input
+            placeholder="Location"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            className="border p-3 rounded-xl"
+          />
         </div>
 
         {/* ADD PACKAGE */}
@@ -102,7 +134,7 @@ const CateringCreation = () => {
 
           <div className="grid md:grid-cols-2 gap-4">
             <input
-              placeholder="Package Name (Wedding / Reception)"
+              placeholder="Package Name"
               value={packageName}
               onChange={(e) => setPackageName(e.target.value)}
               className="border p-3 rounded-xl"
@@ -145,7 +177,10 @@ const CateringCreation = () => {
 
         {/* PACKAGE LIST */}
         {packages.map((pkg) => (
-          <div key={pkg.id} className="flex justify-between bg-gray-100 p-3 rounded-xl">
+          <div
+            key={pkg.id}
+            className="flex justify-between bg-gray-100 p-3 rounded-xl"
+          >
             <span>
               {pkg.packageName} | {pkg.foodType} | ₹{pkg.pricePerPerson}/person
             </span>
@@ -159,10 +194,42 @@ const CateringCreation = () => {
           </div>
         ))}
 
-        {/* Images */}
-        <input type="file" multiple accept="image/*" onChange={handleImageUpload} />
+        {/* IMAGES */}
+        <div>
+          <label className="font-semibold mb-2 block text-gray-600">
+            Upload Images (Max 4)
+          </label>
 
-        {/* Submit */}
+          <input
+            type="file"
+            multiple
+            accept="image/*"
+            onChange={handleImageUpload}
+          />
+
+          {images.length > 0 && (
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-4">
+              {images.map((img, index) => (
+                <div key={index} className="relative">
+                  <img
+                    src={img.preview}
+                    alt="preview"
+                    className="h-24 w-full object-cover rounded-lg border"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => removeImage(index)}
+                    className="absolute top-1 right-1 bg-red-600 text-white text-xs px-2 py-1 rounded-full"
+                  >
+                    ✕
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* SUBMIT */}
         <button
           type="submit"
           className="w-full bg-cyan-600 text-white py-3 rounded-xl text-lg font-semibold"
